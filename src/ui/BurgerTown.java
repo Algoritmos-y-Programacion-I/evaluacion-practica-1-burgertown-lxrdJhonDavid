@@ -100,32 +100,74 @@ public class BurgerTown {
 
     }
 
+    /**
+     * Descripción: Solicita los precios y las cantidades de cada plato vendido y almacena los datos.
+     * pre: Los arreglos precios y unidades deben estar inicializados.
+     * pos: Los datos ingresados quedan almacenados en los arreglos.
+     */
     public static void solicitarDatos(){
-
+        for (int i = 0; i < precios.length; i++) {
+            System.out.println("Digite el precio del plato " + (i + 1) + ":");
+            precios[i] = reader.nextDouble();
+            System.out.println("Digite la cantidad vendida del plato " + (i + 1) + ":");
+            unidades[i] = reader.nextInt();
+        }
      
     }
 
+    /**
+     * Descripción: Calcula la cantidad total de platos vendidos.
+     * pre: El arreglo unidades debe estar lleno.
+     * pos: Retorna la cantidad total de platos vendidos.
+     */
     public static int calcularTotalPlatosVendidos(){
-
-        return 0;
-
+        int total = 0;
+        for (int unidad : unidades) {
+            total += unidad;
+        }
+        return total;
     }
 
+    /**
+     * Descripción: Calcula el precio promedio de los platos vendidos.
+     * pre: El arreglo precios debe estar lleno.
+     * pos: Retorna el precio promedio de los platos vendidos.
+     */
     public static double calcularPrecioPromedio(){
-
-        return 0;
+        double suma = 0;
+        for (double precio : precios) {
+            suma += precio;
+        }
+        return suma / precios.length;
 
     }
 
+    /**
+     * Descripción: Calcula las ventas totales del día.
+     * pre: Los arreglos precios y unidades deben estar llenos.
+     * pos: Retorna el total de dinero recaudado en el día.
+     */
     public static double calcularVentasTotales(){
-
-        return 0;
-
+        double totalVentas = 0;
+        for (int i = 0; i < precios.length; i++) {
+            totalVentas += precios[i] * unidades[i];
+        }
+        return totalVentas;
     }
 
+    /**
+     * Descripción: Consulta cuántos platos superaron un límite mínimo de ventas.
+     * pre: Los arreglos precios y unidades deben estar llenos.
+     * pos: Retorna la cantidad de platos que superaron el límite.
+     */
     public static int consultarPlatosSobreLimite(double limite){
-
-        return 0;
+        int contador = 0;
+        for (int i = 0; i < precios.length; i++) {
+            if (precios[i] * unidades[i] > limite) {
+                contador++;
+            }
+        }
+        return contador;
 
     }
 
